@@ -1,5 +1,10 @@
+import React from "react";
+
+import { Button } from "@nextui-org/button";
 import { Chip } from "@nextui-org/chip";
+import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/popover";
 import {
+  Selection,
   Table,
   TableBody,
   TableCell,
@@ -9,7 +14,7 @@ import {
 } from "@nextui-org/table";
 import { Tooltip } from "@nextui-org/tooltip";
 import { User } from "@nextui-org/user";
-import React from "react";
+
 import { columns, users } from "../data";
 import { DeleteIcon, EditIcon, EyeIcon } from "../icons";
 
@@ -44,18 +49,22 @@ const statusColorMap: Record<
 
 const paymentStatusColorMap: Record<
   UserData["paymentStatus"],
-  "success" | "danger" | "warning" | "primary"
+  "default" | "primary" | "secondary" | "success" | "warning" | "danger"
 > = {
   incomplete: "danger",
-  pending: "primary",
+  pending: "warning",
   failed: "danger",
   paid: "success",
-  refund: "danger",
-  dispute: "danger",
-  chargeback: "danger",
+  refund: "secondary",
+  dispute: "primary",
+  chargeback: "default",
 };
 
 export default function PaymentsTable() {
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
+    new Set([])
+  );
+
   const renderCell = React.useCallback(
     (user: UserData, columnKey: keyof UserData | "actions") => {
       const cellValue = user[columnKey as keyof UserData];
@@ -90,50 +99,59 @@ export default function PaymentsTable() {
               {user.paymentStatus}
             </Chip>
           );
-        case "orderId":
-        case "total":
-          return (
-            <div className="flex flex-col">
-              <p className="text-bold text-sm capitalize">
-                {cellValue?.toString()}
-              </p>
-            </div>
-          );
         case "actions":
           return (
-            <div className="flex justify-center items-center gap-2">
-              <Tooltip content="Details">
-                <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <EyeIcon />
-                </span>
-              </Tooltip>
+            <div className="flex items-center gap-4 relative">
+              <Popover placement="left">
+                <PopoverTrigger>
+                  <Button isIconOnly size="sm" variant="light">
+                    <EyeIcon className="text-lg" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <div className="px-1 py-2">
+                    <div className="text-small font-bold">Network Details</div>
+                    <div className="text-tiny">Name: {user.customer.name}</div>
+                    <div className="text-tiny">
+                      Email: {user.customer.email}
+                    </div>
+                    <div className="text-tiny">Status: {user.status}</div>
+                    <div className="text-tiny">
+                      Payment: {user.paymentStatus}
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
               <Tooltip content="Edit user">
-                <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <EditIcon />
-                </span>
+                <Button isIconOnly size="sm" variant="light">
+                  <EditIcon className="text-lg" />
+                </Button>
               </Tooltip>
               <Tooltip color="danger" content="Delete user">
-                <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                  <DeleteIcon />
-                </span>
+                <Button isIconOnly size="sm" variant="light">
+                  <DeleteIcon className="text-lg text-danger" />
+                </Button>
               </Tooltip>
             </div>
           );
         default:
-          return <span>{cellValue?.toString()}</span>;
+          return cellValue as React.ReactNode;
       }
     },
     []
   );
 
   return (
-    <Table aria-label="Example table with custom cells">
-      <TableHeader columns={columns}>
+    <Table
+      aria-label="Example table with custom cells"
+      selectionMode="multiple"
+      selectedKeys={selectedKeys}
+      onSelectionChange={setSelectedKeys}>
+      <TableHeader columns={[...columns, { name: "Actions", uid: "actions" }]}>
         {(column) => (
           <TableColumn
             key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}
-            className={column.uid === "actions" ? "text-center" : ""}>
+            align={column.uid === "actions" ? "center" : "start"}>
             {column.name}
           </TableColumn>
         )}
@@ -142,9 +160,8 @@ export default function PaymentsTable() {
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => (
-              <TableCell
-                className={columnKey === "actions" ? "text-center" : ""}>
-                {renderCell(item, columnKey as keyof UserData | "actions")}
+              <TableCell>
+                {renderCell(item, columnKey as keyof UserData)}
               </TableCell>
             )}
           </TableRow>

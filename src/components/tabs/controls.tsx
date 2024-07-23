@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
+
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
 import { Tab, Tabs } from "@nextui-org/tabs";
-import { useState } from "react";
+
 import PaymentsTable from "../tables/payments";
 
 export default function PartnerTabs() {
@@ -47,7 +49,7 @@ export default function PartnerTabs() {
         className="w-full">
         {tabs.map((tab) => (
           <Tab key={tab.id} title={tab.label}>
-            <Card>
+            <Card className="bg-charyo-500/60 backdrop-blur-sm border-none">
               <CardHeader className="flex flex-col items-start">
                 <h3 className="text-lg font-semibold">{tab.label} Services</h3>
                 <p className="text-small text-default-500">{tab.content}</p>
