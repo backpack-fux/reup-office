@@ -1,9 +1,9 @@
 const columns = [
-  {name: "CUSTOMER", uid: "customer"},
-  {name: "STATUS", uid: "status"},
-  {name: "PAYMENT STATUS", uid: "paymentStatus"},
-  {name: "ORDER ID", uid: "orderId"},
-  {name: "TOTAL", uid: "total"},
+  { name: "CUSTOMER", uid: "customer" },
+  { name: "STATUS", uid: "status" },
+  { name: "PAYMENT STATUS", uid: "paymentStatus" },
+  { name: "ORDER ID", uid: "orderId" },
+  { name: "TOTAL", uid: "total" },
 ];
 
 const users = [
@@ -94,4 +94,3 @@ const users = [
 ];
 
 export { columns, users };
-

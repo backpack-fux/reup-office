@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
 import { Tab, Tabs } from "@nextui-org/tabs";
@@ -44,9 +43,10 @@ export default function PartnerTabs() {
     <div className="w-full">
       <Tabs
         aria-label="Partner options"
+        className="w-full"
         selectedKey={selectedPartner}
         onSelectionChange={(key) => setSelectedPartner(key as string)}
-        className="w-full">
+      >
         {tabs.map((tab) => (
           <Tab key={tab.id} title={tab.label}>
             <Card className="bg-charyo-500/60 backdrop-blur-sm border-none">

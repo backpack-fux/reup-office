@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Button } from "@nextui-org/button";
 import { Chip } from "@nextui-org/chip";
 import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/popover";
@@ -62,7 +61,7 @@ const paymentStatusColorMap: Record<
 
 export default function PaymentsTable() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
-    new Set([])
+    new Set([]),
   );
 
   const renderCell = React.useCallback(
@@ -75,7 +74,8 @@ export default function PaymentsTable() {
             <User
               avatarProps={{ radius: "lg", src: user.customer.avatar }}
               description={user.customer.email}
-              name={user.customer.name}>
+              name={user.customer.name}
+            >
               {user.customer.email}
             </User>
           );
@@ -85,7 +85,8 @@ export default function PaymentsTable() {
               className="capitalize"
               color={statusColorMap[user.status]}
               size="sm"
-              variant="flat">
+              variant="flat"
+            >
               {user.status}
             </Chip>
           );
@@ -95,7 +96,8 @@ export default function PaymentsTable() {
               className="capitalize"
               color={paymentStatusColorMap[user.paymentStatus]}
               size="sm"
-              variant="flat">
+              variant="flat"
+            >
               {user.paymentStatus}
             </Chip>
           );
@@ -138,20 +140,22 @@ export default function PaymentsTable() {
           return cellValue as React.ReactNode;
       }
     },
-    []
+    [],
   );
 
   return (
     <Table
       aria-label="Example table with custom cells"
-      selectionMode="multiple"
       selectedKeys={selectedKeys}
-      onSelectionChange={setSelectedKeys}>
+      selectionMode="multiple"
+      onSelectionChange={setSelectedKeys}
+    >
       <TableHeader columns={[...columns, { name: "Actions", uid: "actions" }]}>
         {(column) => (
           <TableColumn
             key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}>
+            align={column.uid === "actions" ? "center" : "start"}
+          >
             {column.name}
           </TableColumn>
         )}
