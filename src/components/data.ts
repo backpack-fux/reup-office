@@ -26,12 +26,12 @@ const users: User[] = [
       responseMessage: "Authorised",
       authCode: "123456",
       riskScore: "20",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const users: User[] = [
       email: "summer.smith@example.com",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
     },
-    userStatus: "paused" as const,
+    userStatus: "review" as const,
     paymentStatus: "pending" as const,
     orderId: "ORD-002",
     total: "$75.50",
@@ -50,12 +50,12 @@ const users: User[] = [
       responseMessage: "Authorised",
       authCode: "123456",
       riskScore: "31",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
 
   {
@@ -75,12 +75,12 @@ const users: User[] = [
       responseMessage: "Authorized",
       authCode: "123456",
       riskScore: "1",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
   {
     id: 4,
@@ -89,7 +89,7 @@ const users: User[] = [
       email: "sterling.archer@example.com",
       avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
     },
-    userStatus: "vacation" as const,
+    userStatus: "review" as const,
     paymentStatus: "paid" as const,
     orderId: "ORD-004",
     total: "$380.00",
@@ -99,12 +99,12 @@ const users: User[] = [
       responseMessage: "Authorised",
       authCode: "123456",
       riskScore: "61",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
   {
     id: 5,
@@ -123,12 +123,12 @@ const users: User[] = [
       responseMessage: "Authorised",
       authCode: "123456",
       riskScore: "91",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
   {
     id: 6,
@@ -137,7 +137,7 @@ const users: User[] = [
       email: "cheryl.tunt@example.com",
       avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     },
-    userStatus: "active" as const,
+    userStatus: "refuse" as const,
     paymentStatus: "dispute" as const,
     orderId: "ORD-005",
     total: "$125.75",
@@ -147,12 +147,12 @@ const users: User[] = [
       responseMessage: "Authorised",
       authCode: "123456",
       riskScore: "1",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
   {
     id: 7,
@@ -161,7 +161,7 @@ const users: User[] = [
       email: "launa.kane@example.com",
       avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     },
-    userStatus: "active" as const,
+    userStatus: "nope" as const,
     paymentStatus: "chargeback" as const,
     orderId: "ORD-005",
     total: "$125.75",
@@ -171,12 +171,12 @@ const users: User[] = [
       responseMessage: "Authorised",
       authCode: "123456",
       riskScore: "1",
-      timestamp: "2023-04-01T12:34:56Z"
+      timestamp: "2023-04-01T12:34:56Z",
     },
     history: {
       previousStatuses: [],
-      previousPaymentStatuses: []
-    }
+      previousPaymentStatuses: [],
+    },
   },
 ];
 

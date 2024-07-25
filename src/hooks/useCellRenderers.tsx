@@ -1,9 +1,10 @@
+import React from "react";
+
 import { ActionsCell } from "@/components/cells/actions";
 import { UserCell } from "@/components/cells/user";
 import { StatusCell } from "@/components/cells/user-status";
 import { determineUserStatus } from "@/hooks/determineUserStatus";
 import { User } from "@/types";
-import React from "react";
 
 export const useCellRenderers = (
   userStatusColorMap: Record<string, string>,
@@ -13,16 +14,14 @@ export const useCellRenderers = (
     customer: (user: User) => <UserCell user={user} />,
     userStatus: (user: User) => (
       <StatusCell
-        user={user}
-        status={determineUserStatus(user)}
         colorMap={userStatusColorMap}
+        status={determineUserStatus(user)}
       />
     ),
     paymentStatus: (user: User) => (
       <StatusCell
-        user={user}
-        status={user.paymentStatus}
         colorMap={paymentStatusColorMap}
+        status={user.paymentStatus}
       />
     ),
     actions: (user: User) => <ActionsCell user={user} />,
@@ -33,6 +32,7 @@ export const useCellRenderers = (
       if (columnKey in cellRenderers) {
         return cellRenderers[columnKey as keyof typeof cellRenderers](user);
       }
+
       return user[columnKey as keyof User] as React.ReactNode;
     },
     [cellRenderers]

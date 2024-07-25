@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Selection,
   Table,
@@ -12,7 +11,6 @@ import {
 
 import { columns, users } from "@/components/data";
 import { User } from "@/types";
-
 import { useCellRenderers } from "@/hooks/useCellRenderers";
 import {
   usePaymentStatusColorMap,
@@ -24,10 +22,10 @@ export default function PaymentsTable() {
   const paymentStatusColorMap = usePaymentStatusColorMap();
   const { renderCell } = useCellRenderers(
     userStatusColorMap,
-    paymentStatusColorMap
+    paymentStatusColorMap,
   );
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
-    new Set([])
+    new Set([]),
   );
 
   return (
@@ -35,12 +33,14 @@ export default function PaymentsTable() {
       aria-label="Example table with custom cells"
       selectedKeys={selectedKeys}
       selectionMode="multiple"
-      onSelectionChange={setSelectedKeys}>
+      onSelectionChange={setSelectedKeys}
+    >
       <TableHeader columns={[...columns, { name: "Actions", uid: "actions" }]}>
         {(column) => (
           <TableColumn
             key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}>
+            align={column.uid === "actions" ? "center" : "start"}
+          >
             {column.name}
           </TableColumn>
         )}

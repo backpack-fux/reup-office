@@ -5,16 +5,17 @@ import { Divider } from "@nextui-org/divider";
 import { Tab, Tabs } from "@nextui-org/tabs";
 import { useState } from "react";
 
-import { tabsConfig } from "@/config/tabs";
 import AccountTab from "./account";
 import CreateOrderTab from "./create-order";
 import PaymentsTab from "./payments";
 import SettingsTab from "./settings";
 import SupportTab from "./support";
 
+import { tabsConfig } from "@/config/tabs";
+
 export default function PartnerTabs() {
   const [selectedPartner, setSelectedPartner] = useState<string>(
-    tabsConfig[0].id
+    tabsConfig[0].id,
   );
 
   const renderTabContent = (tabId: string) => {
@@ -40,7 +41,8 @@ export default function PartnerTabs() {
         aria-label="Partner options"
         className="w-full"
         selectedKey={selectedPartner}
-        onSelectionChange={(key) => setSelectedPartner(key as string)}>
+        onSelectionChange={(key) => setSelectedPartner(key as string)}
+      >
         {tabsConfig.map((tab) => (
           <Tab key={tab.id} title={tab.label}>
             <Card className="bg-charyo-500/60 backdrop-blur-sm border-none">

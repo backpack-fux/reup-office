@@ -1,5 +1,6 @@
-import { User } from "@/types";
 import { Chip } from "@nextui-org/chip";
+
+import { User } from "@/types";
 
 interface StatusCellProps {
   user: User;
@@ -7,8 +8,7 @@ interface StatusCellProps {
   colorMap: Record<string, string>;
 }
 
-export const StatusCell: React.FC<StatusCellProps> = ({
-  user,
+export const StatusCell: React.FC<Omit<StatusCellProps, "user">> = ({
   status,
   colorMap,
 }) => (
@@ -25,7 +25,8 @@ export const StatusCell: React.FC<StatusCellProps> = ({
         | undefined
     }
     size="sm"
-    variant="flat">
+    variant="flat"
+  >
     {status}
   </Chip>
 );

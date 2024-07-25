@@ -19,9 +19,9 @@ export const usePaymentStatusColorMap = (): Record<
   return {
     incomplete: "danger",
     pending: "warning",
-  failed: "danger",
-  paid: "success",
-  refund: "secondary",
+    failed: "danger",
+    paid: "success",
+    refund: "secondary",
     dispute: "primary",
     chargeback: "default",
   };

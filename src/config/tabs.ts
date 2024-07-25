@@ -1,9 +1,9 @@
-
 export const tabsConfig = [
   {
     id: "payments",
     label: "Payments",
-    content: "These are all your customer transactions, orders that become transactions",
+    content:
+      "These are all your customer transactions, orders that become transactions",
   },
   {
     id: "create-order",

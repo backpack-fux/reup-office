@@ -7,10 +7,17 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 export type Column = {
   name: string;
   uid: string;
-}
+};
 
 export type UserStatus = "active" | "review" | "refuse" | "nope";
-export type PaymentStatus = "incomplete" | "pending" | "failed" | "paid" | "refund" | "dispute" | "chargeback";
+export type PaymentStatus =
+  | "incomplete"
+  | "pending"
+  | "failed"
+  | "paid"
+  | "refund"
+  | "dispute"
+  | "chargeback";
 
 export type User = {
   id: number;
@@ -35,4 +42,4 @@ export type User = {
     previousStatuses: UserStatus[];
     previousPaymentStatuses: PaymentStatus[];
   };
-}
+};
