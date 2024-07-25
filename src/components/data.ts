@@ -1,6 +1,6 @@
 const columns = [
   { name: "CUSTOMER", uid: "customer" },
-  { name: "STATUS", uid: "status" },
+  { name: "USER STATUS", uid: "userStatus" },
   { name: "PAYMENT STATUS", uid: "paymentStatus" },
   { name: "ORDER ID", uid: "orderId" },
   { name: "TOTAL", uid: "total" },
@@ -14,10 +14,22 @@ const users = [
       email: "rick.sanchez@example.com",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     },
-    status: "active" as const,
+    userStatus: "active" as const,
     paymentStatus: "incomplete" as const,
     orderId: "ORD-001",
     total: "$100.00",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "A",
+      responseMessage: "Authorised",
+      authCode: "123456",
+      riskScore: "20",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
   {
     id: 2,
@@ -26,11 +38,24 @@ const users = [
       email: "summer.smith@example.com",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
     },
-    status: "paused" as const,
+    userStatus: "paused" as const,
     paymentStatus: "pending" as const,
     orderId: "ORD-002",
     total: "$75.50",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "A",
+      responseMessage: "Authorised",
+      authCode: "123456",
+      riskScore: "31",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
+
   {
     id: 3,
     customer: {
@@ -38,10 +63,22 @@ const users = [
       email: "morty.smith@example.com",
       avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
     },
-    status: "active" as const,
+    userStatus: "active" as const,
     paymentStatus: "failed" as const,
     orderId: "ORD-003",
     total: "$250.00",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "10000",
+      responseMessage: "Authorized",
+      authCode: "123456",
+      riskScore: "1",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
   {
     id: 4,
@@ -50,10 +87,22 @@ const users = [
       email: "sterling.archer@example.com",
       avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
     },
-    status: "vacation" as const,
+    userStatus: "vacation" as const,
     paymentStatus: "paid" as const,
     orderId: "ORD-004",
     total: "$380.00",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "A",
+      responseMessage: "Authorised",
+      authCode: "123456",
+      riskScore: "61",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
   {
     id: 5,
@@ -62,34 +111,70 @@ const users = [
       email: "mallory.archer@example.com",
       avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     },
-    status: "active" as const,
+    userStatus: "active" as const,
     paymentStatus: "refund" as const,
     orderId: "ORD-005",
     total: "$125.75",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "A",
+      responseMessage: "Authorised",
+      authCode: "123456",
+      riskScore: "91",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
   {
     id: 6,
     customer: {
-      name: "Kristen Copper",
-      email: "kristen.cooper@example.com",
+      name: "Cheryl Tunt",
+      email: "cheryl.tunt@example.com",
       avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     },
-    status: "active" as const,
+    userStatus: "active" as const,
     paymentStatus: "dispute" as const,
     orderId: "ORD-005",
     total: "$125.75",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "A",
+      responseMessage: "Authorised",
+      authCode: "123456",
+      riskScore: "1",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
   {
     id: 7,
     customer: {
-      name: "Kristen Copper",
-      email: "kristen.cooper@example.com",
+      name: "Launa Kane",
+      email: "launa.kane@example.com",
       avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     },
-    status: "active" as const,
+    userStatus: "active" as const,
     paymentStatus: "chargeback" as const,
     orderId: "ORD-005",
     total: "$125.75",
+    worldpayResponse: {
+      transactionId: "WP12345678",
+      responseCode: "A",
+      responseMessage: "Authorised",
+      authCode: "123456",
+      riskScore: "1",
+      timestamp: "2023-04-01T12:34:56Z"
+    },
+    history: {
+      previousStatuses: [],
+      previousPaymentStatuses: []
+    }
   },
 ];
 

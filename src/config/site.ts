@@ -60,6 +60,6 @@ export const siteConfig = {
     twitter: "phone",
     docs: "email",
     discord: "farcaster",
-    sponsor: "signout",
+    signout: "signout",
   },
 };
