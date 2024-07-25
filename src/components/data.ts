@@ -1,4 +1,6 @@
-const columns = [
+import { Column, User } from "@/types";
+
+const columns: Column[] = [
   { name: "CUSTOMER", uid: "customer" },
   { name: "USER STATUS", uid: "userStatus" },
   { name: "PAYMENT STATUS", uid: "paymentStatus" },
@@ -6,7 +8,7 @@ const columns = [
   { name: "TOTAL", uid: "total" },
 ];
 
-const users = [
+const users: User[] = [
   {
     id: 1,
     customer: {
@@ -18,7 +20,7 @@ const users = [
     paymentStatus: "incomplete" as const,
     orderId: "ORD-001",
     total: "$100.00",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "A",
       responseMessage: "Authorised",
@@ -42,7 +44,7 @@ const users = [
     paymentStatus: "pending" as const,
     orderId: "ORD-002",
     total: "$75.50",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "A",
       responseMessage: "Authorised",
@@ -67,7 +69,7 @@ const users = [
     paymentStatus: "failed" as const,
     orderId: "ORD-003",
     total: "$250.00",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "10000",
       responseMessage: "Authorized",
@@ -91,7 +93,7 @@ const users = [
     paymentStatus: "paid" as const,
     orderId: "ORD-004",
     total: "$380.00",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "A",
       responseMessage: "Authorised",
@@ -115,7 +117,7 @@ const users = [
     paymentStatus: "refund" as const,
     orderId: "ORD-005",
     total: "$125.75",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "A",
       responseMessage: "Authorised",
@@ -139,7 +141,7 @@ const users = [
     paymentStatus: "dispute" as const,
     orderId: "ORD-005",
     total: "$125.75",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "A",
       responseMessage: "Authorised",
@@ -163,7 +165,7 @@ const users = [
     paymentStatus: "chargeback" as const,
     orderId: "ORD-005",
     total: "$125.75",
-    worldpayResponse: {
+    paymentNetworkResponse: {
       transactionId: "WP12345678",
       responseCode: "A",
       responseMessage: "Authorised",
