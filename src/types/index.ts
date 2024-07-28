@@ -4,12 +4,15 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
+
+
 export type Column = {
   name: string;
   uid: string;
 };
 
 export type UserStatus = "active" | "review" | "refuse" | "nope";
+
 export type PaymentStatus =
   | "incomplete"
   | "pending"

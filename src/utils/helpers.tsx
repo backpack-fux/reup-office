@@ -1,5 +1,7 @@
 import { ChainAddress, OrderID } from "@/types";
 
+import { createIcon } from "opepen-standard";
+
 export function formatBalance(balance: number, currency: string): string {
   return `${mapCurrencyToSymbol[currency]} ${balance.toFixed(
     2
@@ -27,4 +29,12 @@ export function generatePlaceholderFID(): number {
 
 export function generatePlaceholderSettlementAddress(): ChainAddress {
   return `0x${Math.random().toString(16).slice(2, 18)}` as ChainAddress;
+}
+
+export function getOpepenAvatar(address: string, size: number): string {
+  const canvas = createIcon({
+    seed: address,
+    size,
+  });
+  return canvas.toDataURL();
 }

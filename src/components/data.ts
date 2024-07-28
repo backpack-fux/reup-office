@@ -1,4 +1,5 @@
 import { Column, MerchantAccount, PylonSettings, SettlementCurrency, SettlementNetwork, User } from "@/types";
+import { getOpepenAvatar } from "@/utils/helpers";
 
 export const columns: Column[] = [
   { name: "CUSTOMER", uid: "customer" },
@@ -16,7 +17,7 @@ export const users: User[] = [
     customer: {
       name: "Rick Sanchez",
       email: "rick.sanchez@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      avatar: getOpepenAvatar("Rick Sanchez", 150),
     },
     userStatus: "active" as const,
     paymentStatus: "incomplete" as const,
@@ -40,7 +41,7 @@ export const users: User[] = [
     customer: {
       name: "Summer Smith",
       email: "summer.smith@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+      avatar: getOpepenAvatar("Summer Smith", 150),
     },
     userStatus: "review" as const,
     paymentStatus: "pending" as const,
@@ -65,7 +66,7 @@ export const users: User[] = [
     customer: {
       name: "Morty Smith",
       email: "morty.smith@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+      avatar: getOpepenAvatar("Morty Smith", 150),
     },
     userStatus: "active" as const,
     paymentStatus: "failed" as const,
@@ -89,7 +90,7 @@ export const users: User[] = [
     customer: {
       name: "Sterling Archer",
       email: "sterling.archer@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
+      avatar: getOpepenAvatar("Sterling Archer", 150),
     },
     userStatus: "review" as const,
     paymentStatus: "paid" as const,
@@ -113,7 +114,7 @@ export const users: User[] = [
     customer: {
       name: "Mallory Archer",
       email: "mallory.archer@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
+      avatar: getOpepenAvatar("Mallory Archer", 150),
     },
     userStatus: "active" as const,
     paymentStatus: "refund" as const,
@@ -137,7 +138,7 @@ export const users: User[] = [
     customer: {
       name: "Cheryl Tunt",
       email: "cheryl.tunt@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
+      avatar: getOpepenAvatar("Cheryl Tunt", 150),
     },
     userStatus: "refuse" as const,
     paymentStatus: "dispute" as const,
@@ -161,7 +162,7 @@ export const users: User[] = [
     customer: {
       name: "Launa Kane",
       email: "launa.kane@example.com",
-      avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
+      avatar: getOpepenAvatar("Launa Kane", 150),
     },
     userStatus: "nope" as const,
     paymentStatus: "chargeback" as const,
