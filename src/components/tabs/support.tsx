@@ -1,20 +1,19 @@
-import { Input } from "@nextui-org/input";
-import { Select, SelectItem } from "@nextui-org/select";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
+import { telegramSupport } from "../data";
 
 export default function SupportTab() {
   return (
-    <form className="space-y-4">
-      <Input label="Customer Name" placeholder="Enter customer name" />
-      <Input
-        label="Order Amount"
-        placeholder="Enter order amount"
-        type="number"
-      />
-      <Select label="Order Type" placeholder="Select order type">
-        <SelectItem key="product">Support</SelectItem>
-        <SelectItem key="service">Stuff</SelectItem>
-      </Select>
-      {/* Add more form fields as needed */}
-    </form>
+    <div className="space-y-4">
+      <p>Jump to Telegram support</p>
+      <Button
+        as={Link}
+        href={telegramSupport}
+        target="_blank"
+        rel="noopener noreferrer"
+        color="primary">
+        Join Telegram Support Channel
+      </Button>
+    </div>
   );
 }

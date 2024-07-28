@@ -1,6 +1,6 @@
-import { Column, User } from "@/types";
+import { Column, MerchantAccount, PylonSettings, SettlementCurrency, SettlementNetwork, User } from "@/types";
 
-const columns: Column[] = [
+export const columns: Column[] = [
   { name: "CUSTOMER", uid: "customer" },
   { name: "USER STATUS", uid: "userStatus" },
   { name: "PAYMENT STATUS", uid: "paymentStatus" },
@@ -8,7 +8,9 @@ const columns: Column[] = [
   { name: "TOTAL", uid: "total" },
 ];
 
-const users: User[] = [
+export const telegramSupport = "https://t.me/+aQkhaA6ncVpmNzY5";
+
+export const users: User[] = [
   {
     id: 1,
     customer: {
@@ -180,4 +182,21 @@ const users: User[] = [
   },
 ];
 
-export { columns, users };
+export const account: MerchantAccount = {
+  fid: 1,
+  settlementAddress: "0xdeadbeef",
+  accountName: "Acme, Inc",
+  complianceStatus: "active",
+  appVersion: "1.0.0",
+};
+
+export const pylon: PylonSettings = {
+  networkType: "testnet",
+  settlementNetwork: SettlementNetwork.BASE,
+  settlementStablecoin: SettlementCurrency.USDC,
+  onRamp: {
+    widget: "",
+    widgetURL: "",
+    apiKey: ""
+  }
+}

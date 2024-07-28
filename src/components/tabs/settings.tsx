@@ -1,20 +1,43 @@
+import { SettlementCurrency, SettlementNetwork } from "@/types";
 import { Input } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/select";
+import { Switch } from "@nextui-org/switch";
+import { useState } from "react";
+import { pylon } from "../data";
 
 export default function SettingsTab() {
+  const [isMainnet, setIsMainnet] = useState(false);
+
   return (
     <form className="space-y-4">
-      <Input label="Customer Name" placeholder="Enter customer name" />
-      <Input
-        label="Order Amount"
-        placeholder="Enter order amount"
-        type="number"
-      />
-      <Select label="Order Type" placeholder="Select order type">
-        <SelectItem key="product">Settings</SelectItem>
-        <SelectItem key="service">Stuff</SelectItem>
+      <div className="flex items-center justify-between">
+        <span>Network Type:</span>
+        <Switch
+          checked={isMainnet}
+          onChange={(e) => setIsMainnet(e.target.checked)}
+          size="sm">
+          {isMainnet ? "Mainnet" : "Testnet"}
+        </Switch>
+      </div>
+      <Select
+        label="Settlement Network"
+        placeholder="Select settlement network">
+        {Object.values(SettlementNetwork).map((network) => (
+          <SelectItem key={network} value={network}>
+            {network}
+          </SelectItem>
+        ))}
       </Select>
-      {/* Add more form fields as needed */}
+      <Select
+        label="Settlement Currency"
+        placeholder="Select settlement currency">
+        {Object.values(SettlementCurrency).map((currency) => (
+          <SelectItem key={currency} value={currency}>
+            {currency}
+          </SelectItem>
+        ))}
+      </Select>
+      <Input label="Pylon Widget" value={pylon.onRamp.widget} readOnly />
     </form>
   );
 }

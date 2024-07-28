@@ -44,7 +44,48 @@ export type User = {
   };
 };
 
-type OrderID = string;
+export type ChainAddress = `0x${string}`;
+
+export enum SettlementNetwork {
+  ETHEREUM = "ethereum",
+  POLYGON = "polygon",
+  ARBITRUM = "arbitrum",
+  AVALANCHE = "avalanche",
+  OPTIMISM = "optimism",
+  SOLANA = "solana",
+  STELLAR = "stellar",
+  BASE = "base",
+
+}
+
+export enum SettlementCurrency {
+  USDC = "usdc",
+  USDT = "usdt",
+  DAI = "dai",
+  GLO = "glo"
+  // Add other currencies as needed
+}
+export type MerchantAccount = {
+  fid: number;
+  settlementAddress: ChainAddress;
+  accountName: string;
+  complianceStatus: string;
+  appVersion: string;
+};
+
+export type PylonSettings = {
+  networkType: "testnet" | "mainnet";
+  settlementNetwork: SettlementNetwork;
+  settlementStablecoin: SettlementCurrency;
+  onRamp: {
+    widget: string;
+    widgetURL: string;
+    apiKey: string;
+  },
+}
+
+// Create a temporary type for the order ID
+export type OrderID = `${string}-${string}-${string}-${string}`;
 
 export type Order = {
   id: OrderID;
