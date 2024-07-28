@@ -1,4 +1,4 @@
-import Controls from "@/components/tabs/controls";
+import Controls from "@/components/tabs";
 
 export default function Home() {
   return (
