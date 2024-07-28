@@ -1,6 +1,6 @@
 export function formatBalance(balance: number, currency: string): string {
   return `${mapCurrencyToSymbol[currency]} ${balance.toFixed(
-    2,
+    2
   )} ${currency.toUpperCase()}`;
 }
 
@@ -12,3 +12,9 @@ export const mapCurrencyToSymbol: Record<string, string> = {
   aud: "$",
   nzd: "$",
 };
+
+export function generatePlaceholderOrderID(): string {
+  const generateGroup = () =>
+    Math.floor(1000 + Math.random() * 9000).toString();
+  return `${generateGroup()}-${generateGroup()}-${generateGroup()}-${generateGroup()}`;
+}
