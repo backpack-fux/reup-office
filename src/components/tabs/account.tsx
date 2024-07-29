@@ -1,22 +1,23 @@
 import { Input } from "@nextui-org/input";
+
 import { account } from "../data";
 
 export default function AccountTab() {
   return (
     <form className="space-y-4">
-      <Input label="FID" value={account.fid.toString()} readOnly />
+      <Input readOnly label="FID" value={account.fid.toString()} />
       <Input
+        readOnly
         label="Settlement Address"
         value={account.settlementAddress}
-        readOnly
       />
-      <Input label="Account Name" value={account.accountName} readOnly />
+      <Input readOnly label="Account Name" value={account.accountName} />
       <Input
+        readOnly
         label="Compliance Status"
         value={account.complianceStatus}
-        readOnly
       />
-      <Input label="App Version" value={account.appVersion} readOnly />
+      <Input readOnly label="App Version" value={account.appVersion} />
     </form>
   );
 }

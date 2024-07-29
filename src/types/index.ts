@@ -4,8 +4,6 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
-
-
 export type Column = {
   name: string;
   uid: string;
@@ -58,14 +56,13 @@ export enum SettlementNetwork {
   SOLANA = "solana",
   STELLAR = "stellar",
   BASE = "base",
-
 }
 
 export enum SettlementCurrency {
   USDC = "usdc",
   USDT = "usdt",
   DAI = "dai",
-  GLO = "glo"
+  GLO = "glo",
   // Add other currencies as needed
 }
 export type MerchantAccount = {
@@ -84,8 +81,8 @@ export type PylonSettings = {
     widget: string;
     widgetURL: string;
     apiKey: string;
-  },
-}
+  };
+};
 
 // Create a temporary type for the order ID
 export type OrderID = `${string}-${string}-${string}-${string}`;
@@ -109,68 +106,64 @@ export type CountryCode = {
 
 // TODO: create a list of all the major countries with their area codes
 export const countryCodes: CountryCode = {
-  "US": {
+  US: {
     areaCode: "+1",
     country: "United States",
   },
-  "GB": {
+  GB: {
     areaCode: "+44",
     country: "United Kingdom",
   },
-  "SP": {
+  SP: {
     areaCode: "+34",
     country: "Spain",
   },
-  "FR": {
+  FR: {
     areaCode: "+33",
     country: "France",
   },
-  "IT": {
+  IT: {
     areaCode: "+39",
     country: "Italy",
   },
-  "DE": {
+  DE: {
     areaCode: "+49",
     country: "Germany",
   },
-  "JP": {
+  JP: {
     areaCode: "+81",
     country: "Japan",
   },
-  "AU": {
+  AU: {
     areaCode: "+61",
     country: "Australia",
   },
-  "CA": {
+  CA: {
     areaCode: "+1",
     country: "Canada",
   },
-  "MX": {
+  MX: {
     areaCode: "+52",
     country: "Mexico",
   },
-  "IN": {
+  IN: {
     areaCode: "+91",
     country: "India",
   },
-  "BR": {
+  BR: {
     areaCode: "+55",
     country: "Brazil",
   },
-  "ZA": {
+  ZA: {
     areaCode: "+27",
     country: "South Africa",
   },
-  "NZ": {
+  NZ: {
     areaCode: "+64",
     country: "New Zealand",
   },
-  "SG": {
+  SG: {
     areaCode: "+60",
     country: "Singapore",
   },
 };
-
-
-
-

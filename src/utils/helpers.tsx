@@ -1,10 +1,10 @@
-import { ChainAddress, OrderID } from "@/types";
-
 import { createIcon } from "opepen-standard";
+
+import { ChainAddress, OrderID } from "@/types";
 
 export function formatBalance(balance: number, currency: string): string {
   return `${mapCurrencyToSymbol[currency]} ${balance.toFixed(
-    2
+    2,
   )} ${currency.toUpperCase()}`;
 }
 
@@ -20,6 +20,7 @@ export const mapCurrencyToSymbol: Record<string, string> = {
 export function generatePlaceholderOrderID(): OrderID {
   const generateGroup = () =>
     Math.floor(1000 + Math.random() * 9000).toString();
+
   return `${generateGroup()}-${generateGroup()}-${generateGroup()}-${generateGroup()}` as OrderID;
 }
 
@@ -36,5 +37,6 @@ export function getOpepenAvatar(address: string, size: number): string {
     seed: address,
     size,
   });
+
   return canvas.toDataURL();
 }

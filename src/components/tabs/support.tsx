@@ -1,5 +1,6 @@
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
+
 import { telegramSupport } from "../data";
 
 export default function SupportTab() {
@@ -8,10 +9,11 @@ export default function SupportTab() {
       <p>Jump to Telegram support</p>
       <Button
         as={Link}
+        color="primary"
         href={telegramSupport}
-        target="_blank"
         rel="noopener noreferrer"
-        color="primary">
+        target="_blank"
+      >
         Join Telegram Support Channel
       </Button>
     </div>

@@ -8,7 +8,7 @@ export function OrderID() {
   const placeholderOrderID = generatePlaceholderOrderID();
 
   return (
-    <Snippet symbol="#" color="default" size="sm" className="max-w-xs">
+    <Snippet className="max-w-xs" color="default" size="sm" symbol="#">
       {placeholderOrderID}
     </Snippet>
   );

@@ -1,9 +1,11 @@
-import { SettlementCurrency, SettlementNetwork } from "@/types";
 import { Input } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/select";
 import { Switch } from "@nextui-org/switch";
 import { useState } from "react";
+
 import { pylon } from "../data";
+
+import { SettlementCurrency, SettlementNetwork } from "@/types";
 
 export default function SettingsTab() {
   const [isMainnet, setIsMainnet] = useState(false);
@@ -14,14 +16,16 @@ export default function SettingsTab() {
         <span>Network Type:</span>
         <Switch
           checked={isMainnet}
+          size="sm"
           onChange={(e) => setIsMainnet(e.target.checked)}
-          size="sm">
+        >
           {isMainnet ? "Mainnet" : "Testnet"}
         </Switch>
       </div>
       <Select
         label="Settlement Network"
-        placeholder="Select settlement network">
+        placeholder="Select settlement network"
+      >
         {Object.values(SettlementNetwork).map((network) => (
           <SelectItem key={network} value={network}>
             {network}
@@ -30,14 +34,15 @@ export default function SettingsTab() {
       </Select>
       <Select
         label="Settlement Currency"
-        placeholder="Select settlement currency">
+        placeholder="Select settlement currency"
+      >
         {Object.values(SettlementCurrency).map((currency) => (
           <SelectItem key={currency} value={currency}>
             {currency}
           </SelectItem>
         ))}
       </Select>
-      <Input label="Pylon Widget" value={pylon.onRamp.widget} readOnly />
+      <Input readOnly label="Pylon Widget" value={pylon.onRamp.widget} />
     </form>
   );
 }

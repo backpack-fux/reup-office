@@ -1,21 +1,4 @@
 import { useState } from "react";
-
-import EmailInput from "@/components/inputs/customerEmail";
-import NameInput from "@/components/inputs/customerName";
-import PhoneInput from "@/components/inputs/customerPhone";
-import AmountInput from "@/components/inputs/orderAmount";
-import { OrderID } from "@/components/snippets/orderID";
-import { generatePlaceholderOrderID } from "@/utils/helpers";
-
-import {
-  formatAmount,
-  formatName,
-  formatPhone,
-  validateAmount,
-  validateEmail,
-  validateName,
-  validatePhone,
-} from "@/utils/validation";
 import { Button } from "@nextui-org/button";
 import {
   Modal,
@@ -25,6 +8,22 @@ import {
   ModalHeader,
 } from "@nextui-org/modal";
 import { Snippet } from "@nextui-org/snippet";
+
+import EmailInput from "@/components/inputs/customerEmail";
+import NameInput from "@/components/inputs/customerName";
+import PhoneInput from "@/components/inputs/customerPhone";
+import AmountInput from "@/components/inputs/orderAmount";
+import { OrderID } from "@/components/snippets/orderID";
+import { generatePlaceholderOrderID } from "@/utils/helpers";
+import {
+  formatAmount,
+  formatName,
+  formatPhone,
+  validateAmount,
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "@/utils/validation";
 
 export default function CreateOrderTab() {
   const [amount, setAmount] = useState("");
@@ -40,6 +39,7 @@ export default function CreateOrderTab() {
 
   const handleNameChange = (value: string) => {
     const formattedValue = formatName(value);
+
     setName(formattedValue);
     setNameError(validateName(formattedValue));
   };
@@ -58,6 +58,7 @@ export default function CreateOrderTab() {
 
   const handlePhoneChange = (value: string) => {
     const formattedValue = formatPhone(value);
+
     setPhone(formattedValue);
     setPhoneError(validatePhone(formattedValue));
   };
@@ -83,21 +84,21 @@ export default function CreateOrderTab() {
     <>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <OrderID />
-        <NameInput value={name} onChange={handleNameChange} error={nameError} />
+        <NameInput error={nameError} value={name} onChange={handleNameChange} />
         <EmailInput
+          error={emailError}
           value={email}
           onChange={handleEmailChange}
-          error={emailError}
         />
         <PhoneInput
+          error={phoneError}
           value={phone}
           onChange={handlePhoneChange}
-          error={phoneError}
         />
         <AmountInput
+          error={amountError}
           value={amount}
           onChange={handleAmountChange}
-          error={amountError}
         />
         <Button type="submit">Create Order</Button>
       </form>
@@ -106,7 +107,8 @@ export default function CreateOrderTab() {
         isOpen={isModalOpen}
         scrollBehavior="inside"
         size="3xl"
-        onClose={() => setIsModalOpen(false)}>
+        onClose={() => setIsModalOpen(false)}
+      >
         <ModalContent>
           <ModalHeader className="flex flex-col gap-1">
             Confirm Order
@@ -122,7 +124,8 @@ export default function CreateOrderTab() {
               `}
               color="default"
               symbol="Receipt"
-              variant="bordered">
+              variant="bordered"
+            >
               <div className="space-y-2">
                 <p>
                   <strong>Order ID:</strong> {generatePlaceholderOrderID()}
@@ -146,13 +149,15 @@ export default function CreateOrderTab() {
             <Button
               color="danger"
               variant="light"
-              onPress={() => setIsModalOpen(false)}>
+              onPress={() => setIsModalOpen(false)}
+            >
               Cancel
             </Button>
             <Button
               color="primary"
               isLoading={isSubmitting}
-              onPress={handleConfirm}>
+              onPress={handleConfirm}
+            >
               Confirm Order
             </Button>
           </ModalFooter>

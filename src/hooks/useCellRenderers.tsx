@@ -8,7 +8,7 @@ import { User } from "@/types";
 
 export const useCellRenderers = (
   userStatusColorMap: Record<string, string>,
-  paymentStatusColorMap: Record<string, string>
+  paymentStatusColorMap: Record<string, string>,
 ) => {
   const cellRenderers = {
     customer: (user: User) => <UserCell user={user} />,
@@ -35,7 +35,7 @@ export const useCellRenderers = (
 
       return user[columnKey as keyof User] as React.ReactNode;
     },
-    [cellRenderers]
+    [cellRenderers],
   );
 
   return { renderCell };

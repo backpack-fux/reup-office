@@ -16,14 +16,14 @@ export default function AmountInput({
       isInvalid={!!error}
       label="Amount"
       placeholder="20.00"
-      type="text"
-      value={value}
-      onValueChange={onChange}
       startContent={
         <div className="pointer-events-none flex items-center">
           <span className="text-small text-default-400">$</span>
         </div>
       }
+      type="text"
+      value={value}
+      onValueChange={onChange}
     />
   );
 }

@@ -1,4 +1,11 @@
-import { Column, MerchantAccount, PylonSettings, SettlementCurrency, SettlementNetwork, User } from "@/types";
+import {
+  Column,
+  MerchantAccount,
+  PylonSettings,
+  SettlementCurrency,
+  SettlementNetwork,
+  User,
+} from "@/types";
 import { getOpepenAvatar } from "@/utils/helpers";
 
 export const columns: Column[] = [
@@ -198,6 +205,6 @@ export const pylon: PylonSettings = {
   onRamp: {
     widget: "",
     widgetURL: "",
-    apiKey: ""
-  }
-}
+    apiKey: "",
+  },
+};
