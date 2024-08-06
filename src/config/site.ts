@@ -5,50 +5,46 @@ export const siteConfig = {
   description: "Where winners come to win more and stuff.",
   navItems: [
     {
-      label: "Payments",
+      label: "Services",
+      href: "http://localhost:3000",
+    },
+    {
+      label: "Office",
       href: "/",
     },
     {
-      label: "Performance",
-      href: "/performance",
+      label: "Accounts",
+      href: "/accounts",
     },
     {
-      label: "Actions",
-      href: "/actions",
+      label: "Rewards",
+      href: "/rewards",
     },
     {
-      label: "Customers",
-      href: "/customers",
+      label: "Support",
+      href: "/support",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Services",
+      href: "http://localhost:3000",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Office",
+      href: "/",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Accounts",
+      href: "/accounts",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Rewards",
+      href: "/rewards",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
+      label: "Support",
+      href: "/support",
     },
     {
       label: "Logout",
